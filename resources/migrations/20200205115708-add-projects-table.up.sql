@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS projects
+(id BIGSERIAL PRIMARY KEY NOT NULL,
+ name VARCHAR(300),
+ startDate DATE,
+ endDate DATE,
+ description VARCHAR(3000),
+ jobId BIGINT REFERENCES jobs(id) NOT NULL);

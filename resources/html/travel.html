@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+  <div class="columns">
+    <div class="column">
+      <h1>Travel</h1>
+      <ul class="trips">
+        {% for trip in trips %}
+          {% include "travel/trip.html" with trips=trips trip=trip articles=articles %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,91 @@
+* {
+	font-family: 'Josefin Sans';
+
+}
+
+h2 {
+	display: inline-block;
+}
+
+h2 a {
+  display: inline-block;
+  color: black;
+}
+
+h2 a:hover{
+	text-decoration: underline;
+}
+
+h3 {
+	display: inline-block;
+}
+
+h3 a {
+  display: inline-block;
+  color: black;
+}
+
+h5 {
+	margin-top: 5px !important;
+	margin-bottom: 5px !important;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	position: relative;
+	font-size: 16px;
+	padding: 5px;
+	border-bottom: 1px dotted #ccc;
+}
+
+ul.projects li {
+  border-bottom: none;
+}
+
+li:last-child {
+	border-bottom: none;
+}
+
+form, .error {
+	padding: 30px;
+	margin-bottom: 50px;
+	position: relative;
+}
+
+.float-left {
+	float: left;
+	margin-right: 10px;
+}
+
+.float-right {
+	float: right;
+	margin-left: 10px;
+}
+
+#nepal-map {
+	width: inherit;
+	position:fixed;
+    top: 20%;
+}
+
+#progress-container {
+	bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed; 
+	display: flex;
+    flex-shrink: 0;
+    min-height: 3.25rem;
+	background-color:#3298dc;
+}
+
+#progress-bar {
+	height:5px;
+	background-color: white;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+

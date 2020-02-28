@@ -1,0 +1,21 @@
+{% ifequal trip.parentid nil %}
+    <li>
+        <h2>{{trip.title}}</h2>
+        <span>Start Date: {{trip.startdate}} | End Date: {{trip.enddate}}</span>
+        <br>
+        <p>{{trip.description}}</p>
+        {% for article in articles %}
+            {% ifequal article.tripid trip.id %}
+                <a href="{{article.url}}"><h5>{{ article.title }}</h5>
+                <div>{{ article.preview|add:.:.:. }}</div></a>
+            {% endifequal %}
+        {% endfor %}
+        {% for subtrip in trips %}
+        <ul>
+            {% ifequal trip.id subtrip.parentid %}
+            {% include "travel/trip/subtrip.html" with subtrip=subtrip articles=articles %}
+            {% endifequal %}
+        </ul>
+        {% endfor %}
+    </li>
+{% endifequal %}

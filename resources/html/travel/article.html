@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+    <div class="columns">
+        <div class="column is-two-thirds">
+            <h1>{{article.title}}</h1>
+            <div>{{article.body|safe}}</div>
+        </div>
+        <div class="column is-one-third">
+            {% include "svg/Nepal.svg" %}
+        </div>
+    </div>
+</div>
+{% include "progress-bar.html" %}
+{% endblock %}

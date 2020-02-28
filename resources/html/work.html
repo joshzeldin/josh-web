@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+  <div class="columns">
+    <div class="column">
+      <h1>Work</h1>
+      <ul class="jobs">
+        {% for item in jobs %}
+        <li>
+          <h2>{{item.title}}, <a href={{item.website}} target="blank">{{item.name}}</a></h2>
+          <span>Start Date: {{item.startdate}} | End Date: {{item.enddate}}</span>
+          <ul class="projects">
+            {% for project in projects %}
+              {% if project.jobid = item.id %}
+                <li>
+                  <h3>{{project.name}}</h3>
+                  <p>{{project.description}}</p>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <form method="POST" action="/work/create-company">
+        {% csrf-field %}
+        <p>
+          Name:
+          <input class="input" type="text" name="name" value="{{name}}" />
+        </p>
+        {% if errors.name %}
+        <div class="notification is-danger">{{errors.name|join}}</div>
+        {% endif %}
+        <p>
+          Website:
+          <input class="input" type="text" name="website" value="{{website}}" />
+        </p>
+        {% if errors.website %}
+        <div class="notification is-danger">{{errors.website|join}}</div>
+        {% endif %}
+        <input type="submit" class="button is-primary" value="Add Company" />
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
