@@ -1,5 +1,9 @@
 d3.selectAll("circle").style("opacity", 0.0)
 
+d3.select("svg").call(d3.zoom().on("zoom", function () {
+    d3.select("g.map").attr("transform", d3.event.transform)
+ }))
+
 var trekScroll = window.requestAnimationFrame ||
     function(callback){
         window.setTimeout(callback, 1000/60)
