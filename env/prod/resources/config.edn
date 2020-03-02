@@ -1,2 +1,7 @@
 {:prod true
- :port 3000}
+ :port 3000
+ ; token used to connect to josh-web prismic
+ :prismic-token (System/getenv "PRISMIC_TOKEN")
+ ; set your dev database connection URL here
+  :database-url (System/getenv "DATABASE_URL")
+}
