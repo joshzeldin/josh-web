@@ -47,11 +47,11 @@ WHERE id = :id
 
 -- :name get-jobs :? :*
 -- :doc retrieves all job records
-SELECT * FROM jobs LEFT JOIN companies ON jobs.companyid = companies.id ORDER BY startdate
+SELECT * FROM jobs LEFT JOIN companies ON jobs.companyid = companies.id ORDER BY startdate DESC
 
 -- :name get-projects :? :*
 -- :doc retrieves all project records
-SELECT * FROM projects ORDER BY startdate
+SELECT * FROM projects ORDER BY startdate DESC
 
 -- :name get-project :? :*
 -- :doc retrieves a project record given the job
