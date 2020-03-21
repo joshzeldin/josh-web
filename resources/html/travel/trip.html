@@ -6,8 +6,10 @@
         <p>{{trip.description}}</p>
         {% for article in articles %}
             {% ifequal article.tripid trip.id %}
-                <a href="{{article.url}}"><h5>{{ article.title }}</h5>
-                <div>{{ article.preview|add:.:.:. }}</div></a>
+                <a href="{{article.url}}">
+                    <h5>{{article.date}} | {{ article.title }}</h5>
+                    <div>{{ article.preview|add:.:.:. }}</div>
+                </a>
             {% endifequal %}
         {% endfor %}
         {% for subtrip in trips %}

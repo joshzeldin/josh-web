@@ -55,6 +55,7 @@
   {
     :lang (-> (.getLang prismic-article))
     :tags (-> (.getTags prismic-article))
+    :date (-> (.getFragments prismic-article) (get "articles.date") (.getValue))
     :title (-> (.getFragments prismic-article) (get "articles.title") (.getTitle) (.getText))
     :tripid (-> (.getFragments prismic-article) (get "articles.tripid") (.getValue) (int))
     :url (clojure.string/join ["travel/article/" 
@@ -70,7 +71,7 @@
 ;;this should be refined to only return articles
 (defn get-articles [prismic-api]
   (let [prismic-articles (-> (.query prismic-api) (.submit) (.getResults))]
-  (map extract-article prismic-articles))
+  (sort-by :date (map extract-article prismic-articles)))
  )
 
  (defn get-article [prismic-api title]
